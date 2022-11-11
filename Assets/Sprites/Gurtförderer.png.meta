@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72c3a78aa6e14ba42a236eb7315c64d9
+guid: cd2199eb67ea93744843fba773fc65f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,54 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WakeUps_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8170fc94b88905d4f937f37b6b86935f
-      internalID: -1124672802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WakeUps_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 851b8ce0be398604ca350b71ac547bb1
-      internalID: -928943403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WakeUps_2
+      name: "Gurtf\xF6rderer_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04970e1e372f177429adbcbddfb9c491
-      internalID: 1974400700
+      spriteID: 44fabf06db0617f42b990d481dbe82be
+      internalID: -384661750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WakeUps_3
+      name: "Gurtf\xF6rderer_1"
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,8 +152,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 751ea5d4013f907418c5d40034e5a872
-      internalID: 1484813797
+      spriteID: 87231d9c4bc467d45b1898624db8cd84
+      internalID: 585592609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Gurtf\xF6rderer_2"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe83d002594c4649a4d1bdbdde73ff3
+      internalID: 45825130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Gurtf\xF6rderer_3"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e3d1ce24792f943bf76da42653db47
+      internalID: 480462200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Gurtf\xF6rderer_4"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edc1ffb05caefa4eae9a7fcb2efb7f9
+      internalID: 1744423299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Gurtf\xF6rderer_5"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ba88e3e0ae905488bb12e0ff3acdec
+      internalID: 2098535282
       vertices: []
       indices: 
       edges: []
@@ -211,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WakeUps_2: 1974400700
-      WakeUps_0: -1124672802
-      WakeUps_1: -928943403
-      WakeUps_3: 1484813797
+      "Gurtf\xF6rderer_4": 1744423299
+      "Gurtf\xF6rderer_0": -384661750
+      "Gurtf\xF6rderer_2": 45825130
+      "Gurtf\xF6rderer_3": 480462200
+      "Gurtf\xF6rderer_1": 585592609
+      "Gurtf\xF6rderer_5": 2098535282
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -47,6 +47,7 @@ public class ObjectPool : MonoBehaviour
 
         objects[index].gameObject.SetActive(true);
         objects[index].transform.localPosition = new Vector3(0,0,0);
+        objects[index].transform.rotation = Quaternion.identity;
 
         return objects[0];
     }

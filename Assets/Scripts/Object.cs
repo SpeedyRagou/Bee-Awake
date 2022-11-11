@@ -29,6 +29,11 @@ public class Object : MonoBehaviour
         {
             move = true;
         }
+        
+        if (collision.gameObject.name == "killzone")
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -37,5 +42,7 @@ public class Object : MonoBehaviour
         {
             move = false;
         }
+
+        
     }
 }

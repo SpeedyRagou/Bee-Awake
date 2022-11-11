@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8941965660743998782}
   m_Layer: 0
   m_Name: alarm
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

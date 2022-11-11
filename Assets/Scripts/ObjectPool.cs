@@ -6,7 +6,6 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public GameObject[] objects;
-    public int spawnHeight;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,23 @@ public class ObjectPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnObject();
+        if (!isActive())
+        {
+            spawnObject();
+        }
+    }
+
+    bool isActive()
+    {
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     GameObject spawnObject()
@@ -31,7 +46,7 @@ public class ObjectPool : MonoBehaviour
         int index = Random.Range(0, objects.Length);
 
         objects[index].gameObject.SetActive(true);
-        objects[index].transform.localPosition = new Vector3(-7,spawnHeight, 0);
+        objects[index].transform.localPosition = new Vector3(0,0,0);
 
         return objects[0];
     }

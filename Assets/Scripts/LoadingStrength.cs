@@ -18,7 +18,7 @@ public class LoadingStrength : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Sprite newState = loadingStates[(int) Mathf.Floor(observable.GetComponent<CharacterControl>().power)];
+        Sprite newState = loadingStates[(int) Mathf.Round(observable.GetComponent<CharacterControl>().power)];
         gameObject.GetComponent<SpriteRenderer>().sprite = newState;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalBehaviour : MonoBehaviour
 {
@@ -37,13 +38,25 @@ public class GoalBehaviour : MonoBehaviour
         sleepiness = sleepiness - sleepiness_change_rate * Time.deltaTime;
 
         float tmp_sprite = sleepiness / (max_sleepiness / (sleepState.Length - 1));
-        
+
+        // ending check
+        if (sleepiness <= 0)
+        {
+            //Ende
+            Debug.Log("End");
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+
+        // select sprite for state
         if (Mathf.RoundToInt(tmp_sprite) != sleep_sprite)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = sleepState[Mathf.RoundToInt((sleepState.Length - 1) - tmp_sprite)];
             sleep_sprite = Mathf.RoundToInt(tmp_sprite);
         }
 
+        
+        // select appropriate movement
         if(score == 10)
         {
             movement_state = 1;
@@ -63,10 +76,10 @@ public class GoalBehaviour : MonoBehaviour
                 gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
             }
 
-            if (gameObject.transform.localPosition[1] <= -4.5)
+            if (gameObject.transform.localPosition[1] <= -5.5)
             {
                 direction[1] = direction[1] * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -4.49f, 10);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.49f, 10);
             }
         }
 
@@ -84,20 +97,20 @@ public class GoalBehaviour : MonoBehaviour
             }
 
             
-            if (gameObject.transform.localPosition[1] <= -4.5 && gameObject.transform.localPosition[0] <= -7)
+            if (gameObject.transform.localPosition[1] <= -5.5 && gameObject.transform.localPosition[0] <= -7)
             {
                 Vector3 tmp = new Vector3(0, 0, 10);
                 tmp[0] = direction[1] * -1;
                 tmp[1] = direction[0] * -1;
                 direction = tmp;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -4.49f, 10);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.49f, 10);
             }
 
             if (gameObject.transform.localPosition[0] >= -1)
             {
                 Debug.Log("I am Here");
                 direction[0] = direction[0] * -1;
-                gameObject.transform.localPosition = new Vector3(-1.01f, -4.5f, 10);
+                gameObject.transform.localPosition = new Vector3(-1.01f, -5.5f, 10);
             }
         }
 
@@ -123,6 +136,7 @@ public class GoalBehaviour : MonoBehaviour
                 {
                     sleepiness = 0;
                 }
+                score = score - score_per_item;
             }
             collision.gameObject.SetActive(false);
             GameObject.Find("Main Camera/Canvas/Score").GetComponent<TextMeshProUGUI>().SetText(score.ToString());

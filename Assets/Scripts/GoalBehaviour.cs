@@ -75,14 +75,14 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
-                direction[1] = direction[1] * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
+                direction[1] = movement_speed * -1;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 10);
             }
 
             if (gameObject.transform.localPosition[1] <= -5.5)
             {
-                direction[1] = direction[1] * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.49f, 10);
+                direction[1] = movement_speed;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.5f, 10);
             }
         }
 
@@ -94,8 +94,8 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
-                direction[1] = direction[1] * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
+                direction[1] = movement_speed * -1;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 10);
             }
 
             
@@ -110,7 +110,7 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[0] >= -1)
             {
-                direction[0] = direction[0] * -1;
+                direction[0] = movement_speed * -1;
                 gameObject.transform.localPosition = new Vector3(-1.01f, -5.5f, 10);
             }
         }

@@ -32,15 +32,15 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetButtonDown("Rotate"))
         {
             Debug.Log("Rotate arm");
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0] * -1, gameObject.transform.localPosition[1], 0);
+            //gameObject.transform.parent.transform.localPosition = new Vector3(gameObject.transform.parent.transform.localPosition[0] * -1, gameObject.transform.parent.transform.localPosition[1], 0);
             if (throwing)
             {
-                gameObject.transform.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
                 power = 0;
             }
             else
             {
-                gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
             }
             
             throwing = !throwing;
@@ -97,8 +97,6 @@ public class CharacterControl : MonoBehaviour
                 up = 1;
                 power = 0;
             }
-
-            Debug.Log(power);
         }
         
     }

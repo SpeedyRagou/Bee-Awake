@@ -13,7 +13,7 @@ public class GoalBehaviour : MonoBehaviour
     public int sleepiness_change_rate;
     public int item_strenght;
     public int score_per_item;
-    public int movement_speed;
+    public float movement_speed;
 
 
     private Sprite[] sleepState;
@@ -38,6 +38,9 @@ public class GoalBehaviour : MonoBehaviour
         sleepiness = sleepiness - sleepiness_change_rate * Time.deltaTime;
 
         float tmp_sprite = sleepiness / (max_sleepiness / (sleepState.Length - 1));
+
+
+        
 
         // ending check
         if (sleepiness <= 0)
@@ -72,13 +75,13 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
-                direction[1] = direction[1] * -1;
+                direction[1] = movement_speed * -1;
                 gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
             }
 
             if (gameObject.transform.localPosition[1] <= -5.5)
             {
-                direction[1] = direction[1] * -1;
+                direction[1] = movement_speed * -1;
                 gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.49f, 10);
             }
         }
@@ -91,8 +94,7 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
-                Debug.Log("Change ");
-                direction[1] = direction[1] * -1;
+                direction[1] = movement_speed * -1;
                 gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
             }
 
@@ -108,8 +110,7 @@ public class GoalBehaviour : MonoBehaviour
 
             if (gameObject.transform.localPosition[0] >= -1)
             {
-                Debug.Log("I am Here");
-                direction[0] = direction[0] * -1;
+                direction[0] = movement_speed * -1;
                 gameObject.transform.localPosition = new Vector3(-1.01f, -5.5f, 10);
             }
         }

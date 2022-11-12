@@ -19,8 +19,9 @@ public class Object : MonoBehaviour
     {
         if (move)
         {
+            
             Rigidbody2D ridgid = GetComponent<Rigidbody2D>();
-            ridgid.velocity = new Vector2(-speed, 0);
+            ridgid.velocity = new Vector2(-speed , 0);
         }
     }
 

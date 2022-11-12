@@ -13,7 +13,7 @@ public class SceneJanitor : MonoBehaviour
     public Button btn_leaderboard;
     public Button btn_Back;
 
-
+    int lastSceneId = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,30 +26,58 @@ public class SceneJanitor : MonoBehaviour
 
     private void goBack()
     {
-        throw new NotImplementedException();
+        Debug.Log("go Back");
+        SceneManager.LoadScene(lastSceneId);
     }
 
     private void openLeaderboard()
     {
         Debug.Log("Load LeaderBoard");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        try
+        {
+            lastSceneId = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("LeaderBoard");
+        }
+        catch (Exception)
+        {
+            Debug.Log("Scene (LeaderBoard) nicht gefunden");
+            throw;
+        }
     }
 
     private void openSettings()
     {
         Debug.Log("Load Settings");
-        throw new NotImplementedException();
+        try
+        {
+            lastSceneId = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("Settings");
+        }
+        catch (Exception)
+        {
+            Debug.Log("Scene (Settings) nicht gefunden");
+            throw;
+        }
     }
 
     private void closeGame()
     {
+        lastSceneId = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("Spiel beenden");
         Application.Quit();
     }
 
     private void startGame()
     {
-        Debug.Log("start Game");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        try
+        {
+            lastSceneId = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("GameScene");
+        }
+        catch (Exception)
+        {
+            Debug.Log("Scene (GameScene) nicht gefunden");
+            throw;
+        }
     }
 }

@@ -388,9 +388,9 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420035}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -482,11 +482,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fb29acb33efbbcf4a8cbe9868db1ea90, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -578,9 +578,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c758ca97285dfc844b16396fa424f137, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -674,11 +674,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09df8aa5645df8f4d922b631eccd3000, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_audioClip: {fileID: 8300000, guid: fb29acb33efbbcf4a8cbe9868db1ea90, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1311,10 +1311,10 @@ MonoBehaviour:
   rotationStrenght: 100
   power: 0
   audios:
-  - {fileID: 8300000, guid: 8bd95222d0914b94080b71e913c47e05, type: 3}
-  - {fileID: 8300000, guid: 2ca4794384cb23a439422c22f9faf1fa, type: 3}
---- !u!60 &1170668924
-PolygonCollider2D:
+  - {fileID: 8300000, guid: 12024f4322ecd9049b74abf487b46dab, type: 3}
+  - {fileID: 8300000, guid: c758ca97285dfc844b16396fa424f137, type: 3}
+--- !u!61 &1170668924
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1894,9 +1894,9 @@ MonoBehaviour:
   maxX: -1
   minX: -7
   audios:
-  - {fileID: 8300000, guid: 53954130f4bc70f4289bc41d2c6d4898, type: 3}
-  - {fileID: 8300000, guid: 8db74855d2bed1d42b74126a435ee15b, type: 3}
-  - {fileID: 8300000, guid: 5e8154f658491bd49a09acf3adad6aff, type: 3}
+  - {fileID: 8300000, guid: 39243e57fb63b384397ccc800345b11a, type: 3}
+  - {fileID: 8300000, guid: 278499d2927749247a85e51779a87487, type: 3}
+  - {fileID: 8300000, guid: 09df8aa5645df8f4d922b631eccd3000, type: 3}
 --- !u!61 &2094967454
 BoxCollider2D:
   m_ObjectHideFlags: 0

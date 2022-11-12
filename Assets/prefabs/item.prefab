@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5832465880087000795}
   - component: {fileID: 6702102334793915784}
   m_Layer: 0
-  m_Name: coffee
+  m_Name: item
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,16 +10,40 @@ public class ObjectPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Sprite[] all_bad = Resources.LoadAll<Sprite>("Assets/Sprites/SleeptDown");
-        Sprite[] all_good = Resources.LoadAll<Sprite>("Assets/Sprites/WakeUps");
-        Debug.Log(all_bad.Length);
+        Sprite[] all_bad = Resources.LoadAll<Sprite>("SleeptDown");
+        Sprite[] all_good = Resources.LoadAll<Sprite>("WakeUps");
 
+        bool good = true;
+
+        int index_good = 0;
+        int index_bad = 0;
         for (int i = 0; i < objects.Length; i++)
         {
 
             GameObject instance = Instantiate(objects[i], new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
-            //instance.GetComponent<SpriteRenderer>().sprite = ;
-            
+            if (good)
+            {
+                instance.GetComponent<SpriteRenderer>().sprite = all_good[index_good];
+                instance.GetComponent<Object>().good = good;
+                good = false;
+                index_good++;
+                if (index_good >= all_good.Length)
+                {
+                    index_good = 0;
+                }
+            }
+            else
+            {
+                instance.GetComponent<SpriteRenderer>().sprite = all_bad[index_bad];
+                instance.GetComponent<Object>().good = false; 
+                good = true;
+                index_bad++;
+                if (index_bad >= all_bad.Length){
+                    index_bad = 0;
+                }
+            }
+
+
             instance.transform.localPosition = new Vector3(0, 0, 0);
             instance.SetActive(false);
             objects[i] = instance;

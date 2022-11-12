@@ -7,11 +7,13 @@ public class CharacterControl : MonoBehaviour
 
     public float throwStrenght;
     public float rotationStrenght;
+    public float power;
 
     bool canCatch;
     GameObject catchable;
     bool throwing;
-    float power;
+    private int up;
+    
 
 
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class CharacterControl : MonoBehaviour
         canCatch = false;
         throwing = false;
         power = 0;
+        up = 1;
         //gameObject.transform.localScale = new Vector3(gameObject.transform.parent.localScale[1], gameObject.transform.parent.localScale[1], gameObject.transform.parent.localScale[1])
     }
 
@@ -80,18 +83,21 @@ public class CharacterControl : MonoBehaviour
 
         if (throwing && canCatch)
         {
-            if(power >= 14)
+
+            power = up * Time.deltaTime * throwStrenght + power;
+
+            if (power >= 14)
             {
+                up = -1;
+                power = 14;
+            }
+
+            if (power <= 0)
+            {
+                up = 1;
                 power = 0;
             }
-            else
-            {
-                power = Time.deltaTime * throwStrenght + power;
-                if (power > 14)
-                {
-                    power = 14;
-                }
-            }
+
             Debug.Log(power);
         }
         

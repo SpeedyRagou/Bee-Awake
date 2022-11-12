@@ -12,10 +12,13 @@ public class GoalBehaviour : MonoBehaviour
     public int sleepiness_change_rate;
     public int item_strenght;
     public int score_per_item;
+    public int movement_speed;
+
 
     private Sprite[] sleepState;
     private int sleep_sprite;
-
+    private int movement_state;
+    private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class GoalBehaviour : MonoBehaviour
         sleepState = Resources.LoadAll<Sprite>("woke");
         sleep_sprite = sleepState.Length - 1;
         gameObject.GetComponent<SpriteRenderer>().sprite = sleepState[(sleepState.Length - 1) - sleep_sprite ];
+        movement_state = 0;
+        direction = new Vector2(0, movement_speed);
     }
 
     // Update is called once per frame
@@ -38,7 +43,64 @@ public class GoalBehaviour : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = sleepState[Mathf.RoundToInt((sleepState.Length - 1) - tmp_sprite)];
             sleep_sprite = Mathf.RoundToInt(tmp_sprite);
         }
-        Debug.Log(sleep_sprite);
+
+        if(score == 10)
+        {
+            movement_state = 1;
+        }else if(score == 20) {
+            movement_state = 2;
+        }
+
+
+        // up down movement
+        if(movement_state == 1)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = direction;
+
+            if (gameObject.transform.localPosition[1] >= 2.5)
+            {
+                direction[1] = direction[1] * -1;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
+            }
+
+            if (gameObject.transform.localPosition[1] <= -4.5)
+            {
+                direction[1] = direction[1] * -1;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -4.49f, 10);
+            }
+        }
+
+        // down right left up movement
+        if (movement_state == 2)
+        {
+            
+            gameObject.GetComponent<Rigidbody2D>().velocity = direction;
+
+            if (gameObject.transform.localPosition[1] >= 2.5)
+            {
+                Debug.Log("Change ");
+                direction[1] = direction[1] * -1;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.49f, 10);
+            }
+
+            
+            if (gameObject.transform.localPosition[1] <= -4.5 && gameObject.transform.localPosition[0] <= -7)
+            {
+                Vector3 tmp = new Vector3(0, 0, 10);
+                tmp[0] = direction[1] * -1;
+                tmp[1] = direction[0] * -1;
+                direction = tmp;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -4.49f, 10);
+            }
+
+            if (gameObject.transform.localPosition[0] >= -1)
+            {
+                Debug.Log("I am Here");
+                direction[0] = direction[0] * -1;
+                gameObject.transform.localPosition = new Vector3(-1.01f, -4.5f, 10);
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,6 +125,7 @@ public class GoalBehaviour : MonoBehaviour
                 }
             }
             collision.gameObject.SetActive(false);
+            GameObject.Find("Main Camera/Canvas/Score").GetComponent<TextMeshProUGUI>().SetText(score.ToString());
         }
         Debug.Log(score);
     }

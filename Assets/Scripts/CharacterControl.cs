@@ -29,23 +29,7 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Rotate"))
-        {
-            Debug.Log("Rotate arm");
-            //gameObject.transform.parent.transform.localPosition = new Vector3(gameObject.transform.parent.transform.localPosition[0] * -1, gameObject.transform.parent.transform.localPosition[1], 0);
-            if (throwing)
-            {
-                gameObject.transform.parent.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
-                power = 0;
-            }
-            else
-            {
-                gameObject.transform.parent.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
-            }
-            
-            throwing = !throwing;
-        }
-
+       
         if (canCatch)
         {
             if (Input.GetButtonDown("Jump"))
@@ -78,6 +62,23 @@ public class CharacterControl : MonoBehaviour
                 }
             }
 
+        }
+
+        if (Input.GetButtonDown("Rotate"))
+        {
+            Debug.Log("Rotate arm");
+            //gameObject.transform.parent.transform.localPosition = new Vector3(gameObject.transform.parent.transform.localPosition[0] * -1, gameObject.transform.parent.transform.localPosition[1], 0);
+            if (throwing)
+            {
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
+                power = 0;
+            }
+            else
+            {
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+            }
+
+            throwing = !throwing;
         }
 
 

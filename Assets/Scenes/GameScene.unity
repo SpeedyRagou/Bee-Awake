@@ -327,7 +327,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75.9
+  m_fontSize: 40.3
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -785,7 +785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817362018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.54, y: 4.31, z: 10}
+  m_LocalPosition: {x: 9.54, y: 4.31, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1236,7 +1236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170668920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: 0.29, z: 0}
+  m_LocalPosition: {x: 0.68, y: 0.29, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwStrenght: 10
   rotationStrenght: 100
-  power: 0
+  power: 6
   audios:
   - {fileID: 8300000, guid: 12024f4322ecd9049b74abf487b46dab, type: 3}
   - {fileID: 8300000, guid: c758ca97285dfc844b16396fa424f137, type: 3}
@@ -1336,18 +1336,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.44670105, y: 0.49959123}
-      - {x: 0.40889692, y: 0.1801821}
-      - {x: 0.030567884, y: -0.011887431}
-      - {x: -0.32154775, y: 0.25033402}
-      - {x: -0.75773954, y: 0.26224947}
-      - {x: -0.7532294, y: -0.21586847}
-      - {x: 0.028439283, y: -0.45645332}
-      - {x: 0.51322365, y: -0.18880844}
-      - {x: 1.0045099, y: 0.10595775}
-      - {x: 1, y: 0.5}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1280509559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_sleepiness: 140
   sleepiness_change_rate: 2
-  item_strenght: 10
+  item_strenght: 20
   score_per_item: 10
   movement_speed: 2
   maxY: 5.5

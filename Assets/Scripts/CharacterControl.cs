@@ -8,6 +8,7 @@ public class CharacterControl : MonoBehaviour
     public float throwStrenght;
     public float rotationStrenght;
     public float power;
+    public AudioClip[] audios;
 
     bool canCatch;
     GameObject catchable;
@@ -58,6 +59,11 @@ public class CharacterControl : MonoBehaviour
                     {
                         catchable.GetComponent<Rigidbody2D>().velocity = new Vector3(-power, power, 0);
                         catchable.GetComponent<Rigidbody2D>().angularVelocity= rotationStrenght;
+
+                        AudioSource audio = GameObject.Find("Main Camera").GetComponents<AudioSource>()[2];
+                        audio.clip = audios[Random.Range(0, audios.Length)];
+                        audio.Play();
+
                     }
                 }
             }

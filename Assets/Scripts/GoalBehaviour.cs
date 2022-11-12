@@ -26,6 +26,7 @@ public class GoalBehaviour : MonoBehaviour
     private int sleep_sprite;
     private int movement_state;
     private Vector2 direction;
+    public AudioClip[] audios;
 
     private List<Vector3> RandomTargetPositions = new List<Vector3>();
 
@@ -198,6 +199,11 @@ public class GoalBehaviour : MonoBehaviour
             }
             collision.gameObject.SetActive(false);
             GameObject.Find("Main Camera/Canvas/Score").GetComponent<TextMeshProUGUI>().SetText(score.ToString());
+
+            AudioSource audio = GameObject.Find("Main Camera").GetComponents<AudioSource>()[1];
+
+            audio.clip = audios[Random.Range(0, audios.Length)];
+            audio.Play();
         }
         Debug.Log(score);
     }

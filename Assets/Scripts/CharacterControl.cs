@@ -7,11 +7,13 @@ public class CharacterControl : MonoBehaviour
 
     public float throwStrenght;
     public float rotationStrenght;
+    public float power;
 
     bool canCatch;
     GameObject catchable;
     bool throwing;
-    float power;
+    private int up;
+    
 
 
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class CharacterControl : MonoBehaviour
         canCatch = false;
         throwing = false;
         power = 0;
+        up = 1;
         //gameObject.transform.localScale = new Vector3(gameObject.transform.parent.localScale[1], gameObject.transform.parent.localScale[1], gameObject.transform.parent.localScale[1])
     }
 
@@ -29,15 +32,15 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetButtonDown("Rotate"))
         {
             Debug.Log("Rotate arm");
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0] * -1, gameObject.transform.localPosition[1], 0);
+            //gameObject.transform.parent.transform.localPosition = new Vector3(gameObject.transform.parent.transform.localPosition[0] * -1, gameObject.transform.parent.transform.localPosition[1], 0);
             if (throwing)
             {
-                gameObject.transform.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
                 power = 0;
             }
             else
             {
-                gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+                gameObject.transform.parent.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
             }
             
             throwing = !throwing;
@@ -80,19 +83,20 @@ public class CharacterControl : MonoBehaviour
 
         if (throwing && canCatch)
         {
-            if(power >= 14)
+
+            power = up * Time.deltaTime * throwStrenght + power;
+
+            if (power >= 14)
             {
+                up = -1;
+                power = 14;
+            }
+
+            if (power <= 0)
+            {
+                up = 1;
                 power = 0;
             }
-            else
-            {
-                power = Time.deltaTime * throwStrenght + power;
-                if (power > 14)
-                {
-                    power = 14;
-                }
-            }
-            Debug.Log(power);
         }
         
     }

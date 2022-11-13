@@ -327,7 +327,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.5
+  m_fontSize: 60.6
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -785,7 +785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817362018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.54, y: 4.31, z: 11}
+  m_LocalPosition: {x: 9.54, y: 4.31, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1787,9 +1787,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2094967452}
   - component: {fileID: 2094967451}
-  - component: {fileID: 2094967454}
   - component: {fileID: 2094967453}
   - component: {fileID: 2094967455}
+  - component: {fileID: 2094967456}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Goal
@@ -1877,44 +1877,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_sleepiness: 140
-  sleepiness_change_rate: 2
+  sleepiness_change_rate: 1.5
   item_strenght: 20
   score_per_item: 10
   movement_speed: 2
-  maxY: 5.5
-  minY: 2.5
+  maxY: 2.5
+  minY: -5.5
   maxX: -1
   minX: -7
   audios:
   - {fileID: 8300000, guid: 39243e57fb63b384397ccc800345b11a, type: 3}
   - {fileID: 8300000, guid: 278499d2927749247a85e51779a87487, type: 3}
   - {fileID: 8300000, guid: 09df8aa5645df8f4d922b631eccd3000, type: 3}
---- !u!61 &2094967454
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094967450}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.025241852, y: 1.7837561}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 6}
-    newSize: {x: 4, y: 6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9638252, y: 1.9949629}
-  m_EdgeRadius: 0
 --- !u!50 &2094967455
 Rigidbody2D:
   serializedVersion: 4
@@ -1936,3 +1910,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &2094967456
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094967450}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.115716934, y: 1.7269932}
+  serializedVersion: 2
+  m_Radius: 1.0736986

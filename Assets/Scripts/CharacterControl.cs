@@ -78,10 +78,20 @@ public class CharacterControl : MonoBehaviour
             {
                 gameObject.transform.parent.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
                 power = 0;
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], gameObject.transform.localPosition[1], gameObject.transform.localPosition[2] * -1);
+                if (catchable != null)
+                {
+                    catchable.transform.localPosition = new Vector3(catchable.transform.localPosition.x, catchable.transform.localPosition.y, catchable.transform.localPosition.z * -1);
+                }
             }
             else
             {
                 gameObject.transform.parent.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], gameObject.transform.localPosition[1], gameObject.transform.localPosition[2] * -1);
+                if(catchable != null)
+                {
+                    catchable.transform.localPosition = new Vector3(catchable.transform.localPosition.x, catchable.transform.localPosition.y, catchable.transform.localPosition.z * -1);
+                }
             }
 
             throwing = !throwing;
@@ -124,6 +134,7 @@ public class CharacterControl : MonoBehaviour
         {
             canCatch = false;
             catchable = null;
+            collision.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         }
     }
 }

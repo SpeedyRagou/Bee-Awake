@@ -12,7 +12,7 @@ public class GoalBehaviour : MonoBehaviour
     private int score;
     private float sleepiness;
     public int max_sleepiness;
-    public int sleepiness_change_rate;
+    public float sleepiness_change_rate;
     public int item_strenght;
     public int score_per_item;
     public float movement_speed;
@@ -32,6 +32,7 @@ public class GoalBehaviour : MonoBehaviour
     private List<Vector3> RandomTargetPositions = new List<Vector3>();
 
     private bool turned = true;
+    private bool other_position = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,14 +89,17 @@ public class GoalBehaviour : MonoBehaviour
         {
             movement_state = 1;
         }
-        else if (score == 20)
+        else if (score == 30)
         {
             movement_state = 2;
+        }else if(score == 100)
+        {
+            movement_state = 3;
         }
 
 
         // up down movement
-        if (movement_state == 3)
+        if (movement_state == 1)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = direction;
 
@@ -154,18 +158,24 @@ public class GoalBehaviour : MonoBehaviour
         //    bool targetReached = true;
         //    Vector3 destination = transform.position;
         //    //Random Movement
-        if (movement_state == 1)
+        if (movement_state == 3)
         {
-            if (Mydestination == transform.localPosition)
+            if (!other_position && Mydestination != transform.localPosition)
             {
-                int random = Random.Range(0, RandomTargetPositions.Count);
-                Mydestination = RandomTargetPositions[random];
+                other_position = true;
+            }
+            if ((Mydestination == transform.localPosition && other_position) || (transform.localPosition.x < minX || transform.localPosition.x > maxX || transform.localPosition.y < minY || transform.position.y > maxY))
+            {
+                other_position = false;
+                Vector3 new_destination = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 10);
+                Debug.Log("Old Position: " + Mydestination.ToString());
+                Debug.Log("New destination: " + new_destination.ToString());
+                direction = new_destination - transform.localPosition;
+                Mydestination = new_destination;
+                Debug.Log("" + direction.ToString());
 
             }
-           
-           // Vector3 direction = transform.localPosition - destination;
-            Debug.Log("Destination: " + Mydestination);
-            transform.localPosition += Mydestination * movement_speed * Time.deltaTime;
+            gameObject.GetComponent<Rigidbody2D>().velocity = direction;
         }
 
         //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.

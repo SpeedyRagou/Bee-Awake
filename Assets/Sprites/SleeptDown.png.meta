@@ -263,6 +263,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SleeptDown_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0783ec982b73074585622087d5e2e0f
+      internalID: 624946298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -275,6 +296,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       SleeptDown_2: 317511247
+      SleeptDown_7: 624946298
       SleeptDown_1: -2095059829
       SleeptDown_0: 1446890174
       SleeptDown_5: 966687510

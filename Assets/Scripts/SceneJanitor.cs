@@ -7,21 +7,41 @@ using UnityEngine.UI;
 
 public class SceneJanitor : MonoBehaviour
 {
-    public Button btn_startGame;
-    public Button btn_closeGame;
-    public Button btn_settings;
-    public Button btn_leaderboard;
-    public Button btn_Back;
+    public Button btn_startGame = default;
+    public Button btn_closeGame = default;
+    public Button btn_settings = default;
+    public Button btn_leaderboard = default;
+    public Button btn_Back = default;
 
     int lastSceneId = 0;
     // Start is called before the first frame update
     void Awake()
     {
-        btn_startGame.onClick.AddListener(() => startGame());
-        btn_closeGame.onClick.AddListener(() => closeGame());
-        btn_settings.onClick.AddListener(() => openSettings());
-        btn_leaderboard.onClick.AddListener(() => openLeaderboard());
-        btn_Back.onClick.AddListener(() => goBack());
+        if (btn_startGame != null)
+        {
+            btn_startGame.onClick.AddListener(() => startGame());
+        }
+        if (btn_closeGame != null)
+        {
+            btn_closeGame.onClick.AddListener(() => closeGame());
+        }
+        if (btn_settings != null)
+        {
+            btn_settings.onClick.AddListener(() => openSettings());
+        }
+        if (btn_leaderboard != null)
+        {
+            btn_leaderboard.onClick.AddListener(() => openLeaderboard());
+        }
+        if (btn_Back != null)
+        {
+            btn_Back.onClick.AddListener(() => goBack());
+
+        }
+
+
+
+
     }
 
     private void goBack()
@@ -51,7 +71,7 @@ public class SceneJanitor : MonoBehaviour
         try
         {
             lastSceneId = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene("Settings");
+            SceneManager.LoadScene("SettingsScene");
         }
         catch (Exception)
         {

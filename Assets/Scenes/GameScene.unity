@@ -327,7 +327,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.3
+  m_fontSize: 27.5
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -820,6 +820,7 @@ MonoBehaviour:
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
+  - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
 --- !u!1 &917415710
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +912,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917415710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100.0684}
+  m_LocalPosition: {x: 0, y: 0, z: 101.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -921,7 +922,7 @@ RectTransform:
   m_AnchorMin: {x: 0.4168058, y: 0.563}
   m_AnchorMax: {x: 0.4168058, y: 0.563}
   m_AnchoredPosition: {x: -1.4877218, y: 0.13}
-  m_SizeDelta: {x: -48, y: -45}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &935136611
 GameObject:
@@ -1150,7 +1151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1106695343
 RectTransform:
   m_ObjectHideFlags: 0

@@ -14,18 +14,9 @@ public class SetUpLeaderBoard : MonoBehaviour
         try
         {
             string lines = File.ReadAllText("./data.txt");
-            /*for (int i = 0; i < lines.Length; i++)
-            {
-                string[] tmp = lines[i].Split(' ');
-                GameObject new_Entry = Instantiate(leaderboard_entry, gameObject.transform);
-                TextMeshPro[] all_infos = new_Entry.GetComponentsInChildren<TextMeshPro>();
 
-
-                all_infos[0].text = i.ToString() + "#";
-                all_infos[1].text = tmp[0];
-                all_infos[2].text = tmp[1];
-
-            }*/
+            GameObject leaderBord = GameObject.Find("Main Camera/Canvas/ScoreBoard");
+            leaderBord.GetComponent<TextMeshPro>().text = "Hier dein Stuff";
         }catch
         {
             Debug.Log("No File Found");

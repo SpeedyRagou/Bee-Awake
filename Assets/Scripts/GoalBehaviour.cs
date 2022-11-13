@@ -27,6 +27,7 @@ public class GoalBehaviour : MonoBehaviour
     private int movement_state;
     private Vector2 direction;
     public AudioClip[] audios;
+    private Vector3 Mydestination = Vector3.zero;
 
     private List<Vector3> RandomTargetPositions = new List<Vector3>();
 
@@ -41,7 +42,7 @@ public class GoalBehaviour : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = sleepState[(sleepState.Length - 1) - sleep_sprite];
         movement_state = 0;
         direction = new Vector2(0, movement_speed);
-
+        Mydestination = transform.localPosition;
 
         for (float i = minY; i < maxY; i++)
         {
@@ -49,7 +50,7 @@ public class GoalBehaviour : MonoBehaviour
             {
                 Vector3 newVector = new Vector3(j, i, 0f);
                 RandomTargetPositions.Add(new Vector3(j, i, 0f));
-                Debug.Log(newVector);
+                // Debug.Log(newVector);
             }
         }
 
@@ -69,7 +70,7 @@ public class GoalBehaviour : MonoBehaviour
         if (sleepiness <= 0)
         {
             //Ende
-            Debug.Log("End");
+            // Debug.Log("End");
             Application.Quit();
             UnityEditor.EditorApplication.isPlaying = false;
         }
@@ -94,7 +95,7 @@ public class GoalBehaviour : MonoBehaviour
 
 
         // up down movement
-        if (movement_state == 1)
+        if (movement_state == 3)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = direction;
 
@@ -110,6 +111,7 @@ public class GoalBehaviour : MonoBehaviour
                 gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.5f, 10);
 
             }
+            Mydestination = transform.localPosition;
         }
 
         // down right left up movement
@@ -130,7 +132,7 @@ public class GoalBehaviour : MonoBehaviour
             {
                 if (turned)
                 {
-                    Debug.Log("hier");
+                   // // Debug.Log("hier");
                     Vector3 tmp = new Vector3(0, 0, 10);
                     tmp[0] = direction[1] * -1;
                     tmp[1] = direction[0] * -1;
@@ -146,34 +148,29 @@ public class GoalBehaviour : MonoBehaviour
                 gameObject.transform.localPosition = new Vector3(-1.0f, -5.5f, 10f);
                 turned = true;
             }
+            Mydestination = transform.localPosition;
         }
 
         //    bool targetReached = true;
         //    Vector3 destination = transform.position;
         //    //Random Movement
-        //    if (movement_state == 1)
-        //    {
-        //        if (!targetReached)
-        //        {
-        //            int random = Random.Range(0, RandomTargetPositions.Count);
-        //            destination = RandomTargetPositions[random];
-        //            Debug.Log("Destination: " + destination);
-        //            targetReached = false;
-        //        }
-        //        //Pick random Destination
+        if (movement_state == 1)
+        {
+            if (Mydestination == transform.localPosition)
+            {
+                int random = Random.Range(0, RandomTargetPositions.Count);
+                Mydestination = RandomTargetPositions[random];
 
-        //        Vector3 directionMalte = transform.position - destination;
+            }
+           
+           // Vector3 direction = transform.localPosition - destination;
+            Debug.Log("Destination: " + Mydestination);
+            transform.localPosition += Mydestination * movement_speed * Time.deltaTime;
+        }
 
-
-        //        transform.position += directionMalte * Time.deltaTime;
-        //        Debug.Log("Position: " + transform.position);
-        //        if (Mathf.Abs(transform.position[0]) >= Mathf.Abs(destination[0]) && Mathf.Abs(transform.position[1]) >= Mathf.Abs(destination[1]))
-        //        {
-        //            targetReached = true;
-        //        }
-
-        //    }
+        //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -205,7 +202,7 @@ public class GoalBehaviour : MonoBehaviour
             audio.clip = audios[Random.Range(0, audios.Length)];
             audio.Play();
         }
-        Debug.Log(score);
+        // Debug.Log(score);
     }
 
 

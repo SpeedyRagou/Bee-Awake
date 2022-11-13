@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,8 @@ public class GoalBehaviour : MonoBehaviour
     public float minY = 2.5f;
     public float maxX = -1.0f;
     public float minX = -7.0f;
+    
+    
 
     private Sprite[] sleepState;
     private int sleep_sprite;
@@ -109,7 +112,10 @@ public class GoalBehaviour : MonoBehaviour
                 }
                 
             }
-            File.WriteAllText("./data.txt", JsonUtility.ToJson(highscores));
+
+            string inp = JsonUtility.ToJson(highscores);
+            Debug.Log(inp);
+            File.WriteAllText("./data.txt", inp);
 
             SceneManager.LoadScene("Leaderbord");
         }
@@ -205,7 +211,7 @@ public class GoalBehaviour : MonoBehaviour
             if ((Mydestination == transform.localPosition && other_position) || (transform.localPosition.x < minX || transform.localPosition.x > maxX || transform.localPosition.y < minY || transform.position.y > maxY))
             {
                 other_position = false;
-                Vector3 new_destination = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 10);
+                Vector3 new_destination = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 10);
                 Debug.Log("Old Position: " + Mydestination.ToString());
                 Debug.Log("New destination: " + new_destination.ToString());
                 direction = new_destination - transform.localPosition;
@@ -247,7 +253,7 @@ public class GoalBehaviour : MonoBehaviour
 
             AudioSource audio = GameObject.Find("Main Camera").GetComponents<AudioSource>()[1];
 
-            audio.clip = audios[Random.Range(0, audios.Length)];
+            audio.clip = audios[UnityEngine.Random.Range(0, audios.Length)];
             audio.Play();
         }
         // Debug.Log(score);

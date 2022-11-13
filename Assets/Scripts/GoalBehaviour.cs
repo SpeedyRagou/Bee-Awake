@@ -114,13 +114,13 @@ public class GoalBehaviour : MonoBehaviour
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
                 direction[1] = movement_speed * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 10);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 12);
             }
 
             if (gameObject.transform.localPosition[1] <= -5.5)
             {
                 direction[1] = movement_speed;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.5f, 10);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], -5.5f, 12);
 
             }
             Mydestination = transform.localPosition;
@@ -135,7 +135,7 @@ public class GoalBehaviour : MonoBehaviour
             if (gameObject.transform.localPosition[1] >= 2.5)
             {
                 direction[1] = movement_speed * -1;
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 10);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition[0], 2.5f, 12);
                 turned = true;
             }
 
@@ -149,7 +149,7 @@ public class GoalBehaviour : MonoBehaviour
                     tmp[0] = direction[1] * -1;
                     tmp[1] = direction[0] * -1;
                     direction = tmp;
-                    gameObject.transform.localPosition = new Vector3(-7f, -5.5f, 10f);
+                    gameObject.transform.localPosition = new Vector3(-7f, -5.5f, 12f);
                     turned = false;
                 }
             }
@@ -157,7 +157,7 @@ public class GoalBehaviour : MonoBehaviour
             if (gameObject.transform.localPosition[0] >= -1)
             {
                 direction[0] = movement_speed * -1;
-                gameObject.transform.localPosition = new Vector3(-1.0f, -5.5f, 10f);
+                gameObject.transform.localPosition = new Vector3(-1.0f, -5.5f, 12f);
                 turned = true;
             }
             Mydestination = transform.localPosition;
@@ -175,7 +175,7 @@ public class GoalBehaviour : MonoBehaviour
             if ((Mydestination == transform.localPosition && other_position) || (transform.localPosition.x < minX || transform.localPosition.x > maxX || transform.localPosition.y < minY || transform.position.y > maxY))
             {
                 other_position = false;
-                Vector3 new_destination = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 10);
+                Vector3 new_destination = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 12f);
                 Debug.Log("Old Position: " + Mydestination.ToString());
                 Debug.Log("New destination: " + new_destination.ToString());
                 direction = new_destination - transform.localPosition;

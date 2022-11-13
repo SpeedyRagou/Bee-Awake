@@ -31,7 +31,8 @@ public class SwapImages : MonoBehaviour
             if (transparency > 0.0f)
             {
                 Color color = StartImage.color;
-                StartImage.color = color.WithAlphaMultiplied(transparency);
+                color.a *= transparency;
+                StartImage.color = color;
             }
             else if (transparency < 0.0f)
             {

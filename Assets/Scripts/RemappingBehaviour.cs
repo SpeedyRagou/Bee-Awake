@@ -23,6 +23,6 @@ public class RemappingBehaviour : MonoBehaviour
 
     private void remapButton(string buttontag, string buttoncode)
     {
-        Input.
+//        Input.
     }
 }

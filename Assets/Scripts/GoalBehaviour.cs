@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -72,8 +73,45 @@ public class GoalBehaviour : MonoBehaviour
         {
             //Ende
             // Debug.Log("End");
-            Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            int[] highscores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            try {
+                highscores = JsonUtility.FromJson<int[]>(File.ReadAllText("./data.txt"));
+            }
+            catch
+            {
+                FileStream stream = File.Create("./data.txt");
+                stream.Close();
+            }
+
+            int index = -1;
+            for(int i = 0; i < highscores.Length; i++)
+            {
+                
+                if (score > highscores[i])
+                {
+                    index = i;
+                    break;
+                }
+                
+            }
+            Debug.Log(index);
+            if (index >= 0)
+            {
+                Debug.Log("I am here " + score.ToString());
+                int tmp = highscores[index];
+                highscores[index] = score;
+                
+                for (int i = index + 1; i < highscores.Length; i++)
+                {
+                    int tmp2 = highscores[i];
+                    highscores[i] = tmp;
+                    tmp = tmp2;
+                }
+                
+            }
+            File.WriteAllText("./data.txt", JsonUtility.ToJson(highscores));
+
+            SceneManager.LoadScene("Leaderbord");
         }
 
         // select sprite for state

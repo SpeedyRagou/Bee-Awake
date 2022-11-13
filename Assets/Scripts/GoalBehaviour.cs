@@ -37,6 +37,8 @@ public class GoalBehaviour : MonoBehaviour
 
     private bool turned = true;
     private bool other_position = true;
+
+    private List<string> LeaderboardEntries = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -74,50 +76,12 @@ public class GoalBehaviour : MonoBehaviour
         // ending check
         if (sleepiness <= 0)
         {
-            //Ende
-            // Debug.Log("End");
-            int[] highscores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            try {
-                highscores = JsonUtility.FromJson<int[]>(File.ReadAllText("./data.txt"));
-            }
-            catch
-            {
-                FileStream stream = File.Create("./data.txt");
-                stream.Close();
-            }
+            readFile();
+            LeaderboardEntries.Add(score.ToString());
+            writeFile();
+           
 
-            int index = -1;
-            for(int i = 0; i < highscores.Length; i++)
-            {
-                
-                if (score > highscores[i])
-                {
-                    index = i;
-                    break;
-                }
-                
-            }
-            Debug.Log(index);
-            if (index >= 0)
-            {
-                Debug.Log("I am here " + score.ToString());
-                int tmp = highscores[index];
-                highscores[index] = score;
-                
-                for (int i = index + 1; i < highscores.Length; i++)
-                {
-                    int tmp2 = highscores[i];
-                    highscores[i] = tmp;
-                    tmp = tmp2;
-                }
-                
-            }
-
-            string inp = JsonUtility.ToJson(highscores);
-            Debug.Log(inp);
-            File.WriteAllText("./data.txt", inp);
-
-            SceneManager.LoadScene("Leaderbord");
+            SceneManager.LoadScene("LeaderBoard");
         }
 
         // select sprite for state
@@ -259,5 +223,39 @@ public class GoalBehaviour : MonoBehaviour
         // Debug.Log(score);
     }
 
+    void writeFile()
+    {
+        List<int> imp = new List<int>();
+        foreach (string line in LeaderboardEntries)
+        {
+            imp.Add(int.Parse(line));
+        }
+        imp.Sort();
+        imp.Reverse();
+        LeaderboardEntries = new List<string>();
+        foreach (int line in imp)
+        {
+            LeaderboardEntries.Add(line.ToString());
+        }
+
+
+        if (LeaderboardEntries.Count > 10)
+        {
+            LeaderboardEntries.Remove(LeaderboardEntries[10]);
+        }
+        File.WriteAllLines("./data.txt", LeaderboardEntries.ToArray());
+    }
+
+    void readFile()
+    {
+        if (File.Exists("./data.txt"))
+        {
+            var Lines = File.ReadAllLines("./data.txt");
+            foreach (string line in Lines)
+            {
+                LeaderboardEntries.Add(line);
+            }
+        }
+    }
 
 }

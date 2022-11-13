@@ -57,6 +57,7 @@ public class SceneJanitor : MonoBehaviour
         {
             lastSceneId = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("LeaderBoard");
+            SceneManager.UnloadSceneAsync(lastSceneId);
         }
         catch (Exception)
         {
@@ -72,6 +73,7 @@ public class SceneJanitor : MonoBehaviour
         {
             lastSceneId = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("SettingsScene");
+            SceneManager.UnloadSceneAsync(lastSceneId);
         }
         catch (Exception)
         {
@@ -93,6 +95,7 @@ public class SceneJanitor : MonoBehaviour
         {
             lastSceneId = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("GameScene");
+            SceneManager.UnloadSceneAsync(lastSceneId);
         }
         catch (Exception)
         {

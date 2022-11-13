@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImage: {fileID: 1106695344}
-  elapsedTime: 5
+  elapsedTime: 10
   fadeRate: 0.001
 --- !u!1 &136562719
 GameObject:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.45
+  m_fontSize: 29.6
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -818,7 +818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
   - {fileID: 5557373638265921716, guid: dde49a0fdbd18b04994c4a53991f1149, type: 3}
@@ -1890,7 +1889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_sleepiness: 140
-  sleepiness_change_rate: 4
+  sleepiness_change_rate: 2
   item_strenght: 20
   score_per_item: 10
   movement_speed: 2
